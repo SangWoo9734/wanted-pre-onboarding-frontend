@@ -2,6 +2,8 @@ import { userSignIn } from "api/user";
 import { getStroageData } from "module/storage";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+import * as G from "components/GlobalStyle";
 import * as S from "./style";
 
 const SignIn = () => {
@@ -31,40 +33,37 @@ const SignIn = () => {
     });
 
   return (
-    <div>
-      <h1>Sign In</h1>
-      <div>
-        <label>이메일: </label>
-        <input
+    <G.PageContainer>
+      <S.SignInWrapper>
+        <G.PageTitle>Sign - In</G.PageTitle>
+        <G.DefaultInput
+          placeholder="이메일"
           data-testid="email-input"
           onChange={(event) => {
             setUserInputEmail(event.target.value);
           }}
         />
-      </div>
-      <div>
-        <label>비밀번호: </label>
-        <input
+        <G.DefaultInput
           type="password"
+          placeholder="비밀번호"
           data-testid="password-input"
           onChange={(event) => {
             setUserInputPassWord(event.target.value);
           }}
         />
-      </div>
-      <div>
-        <button
-          data-testid="signin-button"
+        <G.DefaultButton
+          isFlexible={true}
           disabled={isButtonEnabled}
           onClick={onClickSignInButton}
+          data-testid="signin-button"
         >
           로그인
-        </button>
-        <p>
-          새로운 회원이신가요? <Link to="/signup">회원가입하기</Link>
-        </p>
-      </div>
-    </div>
+        </G.DefaultButton>
+        <S.SignUpText>
+          새로운 회원이신가요?<Link to="/signup">회원가입하기</Link>
+        </S.SignUpText>
+      </S.SignInWrapper>
+    </G.PageContainer>
   );
 };
 
