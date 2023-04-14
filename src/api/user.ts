@@ -31,7 +31,6 @@ const userSignIn = async ({ email, password }: authProps) => {
       password,
     })
     .then((result) => {
-      console.log(result.data.access_token);
       if (result.status === 200)
         setStorageData("auth_token", result.data.access_token);
 
