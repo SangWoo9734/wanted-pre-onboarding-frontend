@@ -1,7 +1,9 @@
 import { userSignUp } from "api/user";
 import { getStroageData } from "module/storage";
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import * as G from "components/GlobalStyle";
 import * as S from "./style";
 
 const SignUp = () => {
@@ -36,38 +38,37 @@ const SignUp = () => {
     });
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <div>
-        <label>이메일: </label>
-        <input
+    <G.PageContainer>
+      <S.SignUpWrapper>
+        <G.PageTitle>Sign - Up</G.PageTitle>
+        <G.DefaultInput
+          placeholder="이메일"
           data-testid="email-input"
           onChange={(event) => {
             setUserInputEmail(event.target.value);
           }}
         />
-      </div>
-      <div>
-        <label>비밀번호: </label>
-        <input
+        <G.DefaultInput
           type="password"
+          placeholder="비밀번호"
           data-testid="password-input"
           onChange={(event) => {
             setUserInputPassWord(event.target.value);
           }}
         />
-      </div>
-      <div>
-        <p>{noticMesssage}</p>
-      </div>
-      <button
-        data-testid="signup-button"
-        disabled={isButtonEnabled}
-        onClick={onClickSignUpButton}
-      >
-        회원가입
-      </button>
-    </div>
+        <G.DefaultButton
+          isFlexible={true}
+          disabled={isButtonEnabled}
+          onClick={onClickSignUpButton}
+          data-testid="signup-button"
+        >
+          회원가입
+        </G.DefaultButton>
+        <S.SignUpNoticeWrapper>
+          <p>{noticMesssage}</p>
+        </S.SignUpNoticeWrapper>
+      </S.SignUpWrapper>
+    </G.PageContainer>
   );
 };
 
