@@ -1,6 +1,8 @@
 import { deleteTodo, updateTodo } from "api/todo";
 import { TodoType } from "assets/types";
 import React, { useState } from "react";
+
+import * as G from "components/GlobalStyle";
 import * as S from "./style";
 
 interface Props {
@@ -35,44 +37,52 @@ const TodoUnit = ({ fetchTodoListData, todoProps }: Props) => {
 
   return (
     <S.Todoli>
-      <label>
-        <input
-          type="checkbox"
-          defaultChecked={todoData.isCompleted}
-          onClick={onClickTodoCompleteToggle}
-        />
-        {isEditingMode ? (
-          <span>
-            <input
-              defaultValue={todoData.todo}
-              onChange={onEditTodoText}
-              data-testid="modify-input"
-            />
-            <button
-              onClick={onClickTodoUpdateButton}
-              data-testid="submit-button"
-            >
-              제출
-            </button>
-            <button onClick={onClickTodoEditToggle} data-testid="cancel-button">
-              취소
-            </button>
-          </span>
-        ) : (
-          <span>
-            <span>{todoData.todo}</span>
-            <button onClick={onClickTodoEditToggle} data-testid="modify-button">
-              수정
-            </button>
-            <button
-              onClick={onClickTodoDeleteButton}
-              data-testid="delete-button"
-            >
-              삭제
-            </button>
-          </span>
-        )}
-      </label>
+      <S.TodoCheckBox
+        id={`input_${todoData.id}`}
+        type="checkbox"
+        defaultChecked={todoData.isCompleted}
+        onClick={onClickTodoCompleteToggle}
+      />
+      {isEditingMode ? (
+        <S.TodoInfoContainer>
+          <G.DefaultInput
+            autoFocus
+            defaultValue={todoData.todo}
+            onChange={onEditTodoText}
+            data-testid="modify-input"
+          />
+          <G.DefaultButton
+            onClick={onClickTodoUpdateButton}
+            data-testid="submit-button"
+          >
+            제출
+          </G.DefaultButton>
+          <G.DefaultButton
+            onClick={onClickTodoEditToggle}
+            data-testid="cancel-button"
+          >
+            취소
+          </G.DefaultButton>
+        </S.TodoInfoContainer>
+      ) : (
+        <S.TodoInfoContainer>
+          <S.TodoLabel htmlFor={`input_${todoData.id}`}>
+            <S.TodoText>{todoData.todo}</S.TodoText>
+          </S.TodoLabel>
+          <G.DefaultButton
+            onClick={onClickTodoEditToggle}
+            data-testid="modify-button"
+          >
+            수정
+          </G.DefaultButton>
+          <G.DefaultButton
+            onClick={onClickTodoDeleteButton}
+            data-testid="delete-button"
+          >
+            삭제
+          </G.DefaultButton>
+        </S.TodoInfoContainer>
+      )}
     </S.Todoli>
   );
 };
