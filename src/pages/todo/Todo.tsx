@@ -14,8 +14,6 @@ const Todo = () => {
   const [newTodoText, setNewTodoText] = useState<string>("");
 
   const fetchTodoListData = () => {
-    let token = getStroageData("auth_token");
-    if (token == null) navigate("/signin");
     getTodo().then((result) => {
       if (result.status === 200 && result.data !== null) {
         setTodoList(result.data);
@@ -37,6 +35,8 @@ const Todo = () => {
   };
 
   useEffect(() => {
+    let token = getStroageData("auth_token");
+    if (token == null) navigate("/signin");
     fetchTodoListData();
   }, []);
 
