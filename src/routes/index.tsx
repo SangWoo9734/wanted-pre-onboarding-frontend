@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignIn from "../pages/sign_in";
 import SignUp from "../pages/sign_up/SignUp";
 import Todo from "../pages/todo";
@@ -8,6 +8,7 @@ function ProjectRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Navigate to="/signin" />} />
         <Route path="/todo" element={<Todo />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
