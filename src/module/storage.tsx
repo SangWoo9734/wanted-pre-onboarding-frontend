@@ -3,5 +3,9 @@ export const getStroageData = (key: string) => {
 };
 
 export const setStorageData = (key: string, value: string) => {
-  return localStorage.setItem(key, value);
+  localStorage.setItem(key, value);
+};
+
+export const clearStorageData = () => {
+  localStorage.clear();
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createTodo, getTodo } from "api/todo";
 import { TodoType } from "assets/types";
 import TodoUnit from "components/todo_unit/TodoUnit";
-import { getStroageData } from "module/storage";
+import { getStroageData, clearStorageData } from "module/storage";
 import { useNavigate } from "react-router-dom";
 
 import * as G from "components/GlobalStyle";
@@ -31,13 +31,21 @@ const Todo = () => {
     });
   };
 
+  const onClickLogout = () => {
+    clearStorageData();
+    navigate("/signin");
+  };
+
   useEffect(() => {
     fetchTodoListData();
   }, []);
 
   return (
     <G.PageContainer>
-      <G.PageTitle>To - Do</G.PageTitle>
+      <S.TodoListTitleWrapper>
+        <G.PageTitle>To - Do</G.PageTitle>
+        <S.TodoLogout onClick={onClickLogout}>로그아웃</S.TodoLogout>
+      </S.TodoListTitleWrapper>
       <S.TodoCreatorContainer>
         <G.DefaultInput
           value={newTodoText}
@@ -74,3 +82,6 @@ const Todo = () => {
 };
 
 export default Todo;
+function useCallBack(arg0: () => void, arg1: never[]) {
+  throw new Error("Function not implemented.");
+}
