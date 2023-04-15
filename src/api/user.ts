@@ -1,5 +1,4 @@
 import { apiClient } from ".";
-import { setStorageData } from "module/storage";
 import { authProps, signInResponse } from "./types";
 
 const userSignUp = async ({ email, password }: authProps) => {
@@ -24,18 +23,11 @@ const userSignUp = async ({ email, password }: authProps) => {
     });
 };
 
-const userSignIn = async ({ email, password }: authProps) => {
-  return await apiClient
-    .post<signInResponse>("/auth/signin", {
-      email,
-      password,
-    })
-    .then((result) => {
-      if (result.status === 200)
-        setStorageData("auth_token", result.data.access_token);
-
-      return result;
-    });
+const userSignIn = ({ email, password }: authProps) => {
+  return apiClient.post<signInResponse>("/auth/signin", {
+    email,
+    password,
+  });
 };
 
 export { userSignIn, userSignUp };

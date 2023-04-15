@@ -1,5 +1,5 @@
 import { userSignIn } from "api/user";
-import { getStroageData } from "module/storage";
+import { getStroageData, setStorageData } from "module/storage";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (getStroageData("auth_token") !== null) navigate("/todo");
-  });
+  }, []);
 
   useEffect(() => {
     if (userInputEmail.includes("@") && userInputPassWord.length >= 8) {
@@ -29,7 +29,10 @@ const SignIn = () => {
       email: userInputEmail,
       password: userInputPassWord,
     }).then((result) => {
-      if (result.status === 200) navigate("/todo");
+      if (result.status === 200) {
+        setStorageData("auth_token", result.data.access_token);
+        navigate("/todo");
+      }
     });
 
   return (
