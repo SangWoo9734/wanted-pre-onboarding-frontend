@@ -53,7 +53,9 @@ const Todo = () => {
         </G.DefaultButton>
       </S.TodoCreatorContainer>
       {todoList.length === 0 ? (
-        <p>등록된 Todo가 없습니다.</p>
+        <S.NoTodoNotice>
+          <p>등록된 Todo가 없습니다.</p>
+        </S.NoTodoNotice>
       ) : (
         <S.TodoListContainer>
           {todoList.map((todoData: TodoType) => {
