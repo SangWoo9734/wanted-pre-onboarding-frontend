@@ -39,18 +39,10 @@ export const DefaultInput = styled.input`
   font-size: 1.2rem;
 `;
 
-export const HigherInput = styled.input`
-  flex: auto;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  background: #41ce9140;
-  font-size: 1.2rem;
-`;
-
 export const DefaultButton = styled.button<{ isFlexible?: boolean }>`
   flex: ${(props) => (props.isFlexible === true ? "auto" : "none")};
-  padding: 5px 10px;
+  margin-left: ${(props) => (props.isFlexible === true ? "0px" : "10px")};
+  padding: 10px;
   border-radius: 5px;
   background: #41ce91;
   color: white;
