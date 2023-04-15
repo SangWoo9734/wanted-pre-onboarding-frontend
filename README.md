@@ -1,46 +1,19 @@
-# Getting Started with Create React App
+# Wanted Pre-Onboarding Frontend 사전과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 실행방법
 
-## Available Scripts
+git clone을 통해 로컬 디렉토리에 프로젝트 폴더를 clone합니다.
+```
+git clone https://github.com/SangWoo9734/wanted-pre-onboarding-frontend.git
+```  
+  
+npm 환경에서 제작된 프로젝트 입니다. 아래 명령어를 통해 로컬 환경에서 실행 가능합니다.
+```
+npm install && npm start
+```  
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 데모 영상 ( 배포 링크 대체 )
+데모 영상 대신 배포 링크를 첨부합니다.  
+아래 링크가 제대로 동작하지 않으면 git 레포지토리 우측 About 영역의 url을 통해서 동일한 페이지로 접속 가능합니다. 
+  
+[배포 페이지 링크](https://wanted-pre-onboarding-frontend-delta.vercel.app)
