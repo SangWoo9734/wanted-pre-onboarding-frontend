@@ -13,7 +13,8 @@ const SignIn = () => {
   const [isButtonEnabled, setIsButtonEnabled] = useState<boolean>(true);
 
   useEffect(() => {
-    if (getStroageData("auth_token") !== null) navigate("/todo");
+    let token = getStroageData("auth_token");
+    if (token !== null && token !== undefined) navigate("/todo");
   }, []);
 
   useEffect(() => {
