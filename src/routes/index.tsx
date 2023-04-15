@@ -14,7 +14,7 @@ function ProjectRoutes() {
         <Route
           path="*"
           element={
-            <main style={{ padding: "1rem" }}>
+            <main style={{ fontSize: "3rem", padding: "1rem" }}>
               <p>404: NOT FOUND</p>
             </main>
           }
